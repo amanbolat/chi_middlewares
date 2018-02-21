@@ -1,9 +1,7 @@
 package chi_middlewares
 
 import (
-	"fmt"
 	"net/http"
-	"os"
 	"runtime/debug"
 	"github.com/rs/zerolog"
 )
