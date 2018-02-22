@@ -44,7 +44,7 @@ func LoggerMiddleware(logger *zerolog.Logger) func(next http.Handler) http.Handl
 					"remote_ip":  r.RemoteAddr,
 					"host":       r.Host,
 					"proto":      r.Proto,
-					"uri":        fmt.Sprintf("%s://%s%s", scheme, r.Host, r.RequestURI),
+					"uri":        fmt.Sprintf("%s://%s%s", scheme, r.URL.Host, r.URL.RequestURI()),
 					"method":     r.Method,
 					"user_agent": r.Header.Get("User-Agent"),
 					"status":     ww.Status(),
