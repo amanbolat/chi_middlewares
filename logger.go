@@ -39,8 +39,6 @@ func LoggerMiddleware(logger *zerolog.Logger) func(next http.Handler) http.Handl
 					http.Error(ww, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 				}
 
-				ww.Unwrap()
-
 				// log end request
 				log.Info().Timestamp().Fields(map[string]interface{}{
 					"remote_ip":  r.RemoteAddr,
