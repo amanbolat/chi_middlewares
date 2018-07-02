@@ -76,7 +76,7 @@ func ApexLoggerMiddleware() func(next http.Handler) http.Handler {
 				if rec := recover(); rec != nil {
 					e.WithFields(alog.Fields{
 						"recover_info": rec,
-						"debug_stack": debug.Stack(),
+						"debug_stack":  string(debug.Stack()),
 					}).Error("error_request")
 					http.Error(ww, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 				}
